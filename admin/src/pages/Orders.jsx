@@ -23,7 +23,7 @@ const Orders = ({ token }) => {
       );
 
       if (response.data.success) {
-        setOrders(response.data.orders);
+        setOrders(response.data.orders.reverse());
       } else {
         toast.error(response.data.message || "Failed to fetch orders");
         console.error("Failed to fetch orders:", response.statusText);
@@ -63,59 +63,66 @@ const Orders = ({ token }) => {
   return (
     <div>
       <h3>Order Page</h3>
+      {orders.length === 0 && (
+        <div className="text-center text-gray-600 text-lg py-8">
+          No orders found.
+        </div>
+      )}
       {orders.map((order, index) => (
         <div
-          className="grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-2 border-gray-200 p-5 md:p-8 my-3 md:my-4 text-xs sm:text-sm text-gray-700  "
+          className="grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-5 items-start border-2 border-gray-200 p-5 md:p-8 my-3 md:my-4 text-xs sm:text-sm text-gray-700 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 "
           key={index}
         >
           <img className="w-12" src={assets.parcel_icon} alt="Parcel Icon" />
           <div>
-            <div>
+            <h4 className="text-sm sm:text-base font-medium text-gray-800 mb-2">
+              Order Details
+            </h4>
+            <div className="space-y-1">
               {Array.isArray(order.products) &&
-                order.products.map((product, i) => {
-                  if (i === order.products.length - 1) {
-                    return (
-                      <p className="py-0.5" key={i}>
-                        {product.name} X{product.quantity}
-                        <span>{product.size}</span>
-                      </p>
-                    );
-                  } else {
-                    return (
-                      <p className="py-0.5" key={i}>
-                        {product.name} X{product.quantity}
-                        <span>{product.size}</span>,
-                      </p>
-                    );
-                  }
-                })}
+                order.products.map((product, i) => (
+                  <p key={i} className="text-sm text-gray-600">
+                    <span className="font-medium">{product.name}</span> (Qty:{" "}
+                    {product.quantity}, Size: {product.size || "N/A"})
+                  </p>
+                ))}
             </div>
 
-            <p className="mt-3 mb-2 font-medium">
-              {order.address.firstName + " " + order.address.lastName}
+            <p className="mt-3 font-medium text-sm sm:text-base text-gray-800">
+              Customer: {order.address.firstName} {order.address.lastName}
             </p>
-            <div>
-              <p>{order.address.street + ","}</p>
+            <div className="mt-2 text-sm text-gray-600">
+              <p className="font-medium">Address:</p>
+              <p>{order.address.street},</p>
               <p>
-                {order.address.city +
-                  ", " +
-                  order.address.state +
-                  ", " +
-                  order.address.country +
-                  ", " +
-                  order.address.zip}
+                {order.address.city}, {order.address.state},{" "}
+                {order.address.country}, {order.address.zip}
               </p>
+              <p>{order.address.phone}</p>
             </div>
             <p>{order.address.phone}</p>
           </div>
 
-          <div>
-            <p className="text-sm sm:text-[15px]">
-              Items: {order.products.length}
+          <div className="text-sm sm:text-base text-gray-600">
+            <p>
+              <span className="font-medium">Items:</span>{" "}
+              {order.products.length}
             </p>
-            <p className="mt-3"> Method : {order.paymentMethod}</p>
-            <p>Payment :{order.payment ? "Done" : "Pending"}</p>
-            <p>Date: {new Date(order.date).toLocaleDateString()}</p>
+            <p className="mt-2">
+              <span className="font-medium">Method:</span> {order.paymentMethod}
+            </p>
+            <p>
+              <span className="font-medium">Payment:</span>{" "}
+              {order.payment ? (
+                <span className="text-green-600">Done</span>
+              ) : (
+                <span className="text-red-600">Pending</span>
+              )}
+            </p>
+            <p>
+              <span className="font-medium">Date:</span>{" "}
+              {new Date(order.date).toLocaleDateString()}
+            </p>
           </div>
           <p className="text-sm sm:text-[15px]">
             {currency}

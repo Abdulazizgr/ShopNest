@@ -11,19 +11,23 @@ const Add = ({ token }) => {
   const [image4, setImage4] = useState(false);
 
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [shortDescription, setShortDescription] = useState("");
+  const [detailDescription, setDetailDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("Men");
-  const [subCategory, setSubCategory] = useState("Topwear");
+  const [subCategory, setSubCategory] = useState("T-Shirts & Shirts");
   const [sizes, setSizes] = useState([]);
   const [bestSeller, setBestSeller] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const formData = new FormData();
       formData.append("name", name);
-      formData.append("description", description);
+      formData.append("shortDescription", shortDescription);
+      formData.append("detailDescription", detailDescription);
       formData.append("price", price);
       formData.append("category", category);
       formData.append("subCategory", subCategory);
@@ -34,6 +38,7 @@ const Add = ({ token }) => {
       image2 && formData.append("image2", image2);
       image3 && formData.append("image3", image3);
       image4 && formData.append("image4", image4);
+      console.log(formData);
       const response = await axios.post(
         `${backendUrl}/api/product/add`,
         formData,
@@ -48,7 +53,8 @@ const Add = ({ token }) => {
         setImage3(false);
         setImage4(false);
         setName("");
-        setDescription("");
+        setShortDescription("");
+        setDetailDescription("");
         setPrice("");
         setCategory("Men");
         setSubCategory("Topwear");
@@ -60,6 +66,8 @@ const Add = ({ token }) => {
     } catch (error) {
       console.error(error);
       toast.error(error.message);
+    } finally {
+      setIsLoading(false); // stop loading
     }
   };
 
@@ -149,14 +157,27 @@ const Add = ({ token }) => {
         />
       </div>
       <div className="w-full ">
-        <p className="mb-2">Product Description</p>
+        <p className="mb-2">Product Short Description</p>
         <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={shortDescription}
+          onChange={(e) => setShortDescription(e.target.value)}
           className="w-full max-w-[500px] px-3 py-2"
           type="text"
-          placeholder="Write product description"
+          placeholder="Write product short description"
           required
+          maxLength={150}
+        />
+      </div>
+      <div className="w-full ">
+        <p className="mb-2">Product Detail Description</p>
+        <textarea
+          value={detailDescription}
+          onChange={(e) => setDetailDescription(e.target.value)}
+          className="w-full max-w-[500px] px-3 py-2"
+          type="text"
+          placeholder="Write product detail description"
+          required
+          rows={5}
         />
       </div>
       <div className="flex flex-col sm:flex-row gap-2 w-full sm:gap-8">
@@ -179,9 +200,12 @@ const Add = ({ token }) => {
             onChange={(e) => setSubCategory(e.target.value)}
             className="w-full  px-3 py-2"
           >
-            <option value="Topwear">Topwear</option>
-            <option value="Bottomwear">Bottomwear</option>
-            <option value="Winterwear">Winterwear</option>
+            <option value="T-Shirts & Shirts">T-Shirts & Shirts</option>
+            <option value="Hoodies & Sweatshirts">Hoodies & Sweatshirts</option>
+            <option value="Jackets & Coats">Jackets & Coats</option>
+            <option value="Pants & Jeans">Pants & Jeans</option>
+            <option value="Shorts">Shorts</option>
+            <option value="Dresses & Skirts">Dresses & Skirts</option>
           </select>
         </div>
         <div>
@@ -244,12 +268,12 @@ const Add = ({ token }) => {
             }
           >
             <p
-              className={`bg-slate-200 px-3 py-1 cursor-pointer ${
+              className={` px-3 py-1 cursor-pointer ${
                 sizes.includes("L") ? "bg-pink-100" : "bg-slate-200"
               }`}
             >
               L
-            </p>
+            </p>{" "}
           </div>
           <div
             onClick={() =>
@@ -261,7 +285,7 @@ const Add = ({ token }) => {
             }
           >
             <p
-              className={`bg-slate-200 px-3 py-1 cursor-pointer ${
+              className={` px-3 py-1 cursor-pointer ${
                 sizes.includes("XL") ? "bg-pink-100" : "bg-slate-200"
               }`}
             >
@@ -278,7 +302,7 @@ const Add = ({ token }) => {
             }
           >
             <p
-              className={`bg-slate-200 px-3 py-1 cursor-pointer ${
+              className={` px-3 py-1 cursor-pointer ${
                 sizes.includes("XXL") ? "bg-pink-100" : "bg-slate-200"
               }`}
             >
@@ -301,8 +325,39 @@ const Add = ({ token }) => {
         </label>
       </div>
 
-      <button type="submit" className="w-28 py-3 mt-4 bg-black text-white">
-        ADD
+      <button
+        type="submit"
+        disabled={isLoading}
+        className={`w-32 py-3 mt-4 rounded text-white ${
+          isLoading ? "bg-gray-500" : "bg-black hover:bg-gray-800"
+        }`}
+      >
+        {isLoading ? (
+          <span className="flex items-center justify-center gap-2">
+            <svg
+              className="animate-spin h-4 w-4 text-white"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+                fill="none"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v8z"
+              />
+            </svg>
+            Adding...
+          </span>
+        ) : (
+          "Add Product"
+        )}
       </button>
     </form>
   );
