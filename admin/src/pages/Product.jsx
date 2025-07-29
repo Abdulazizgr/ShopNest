@@ -3,10 +3,11 @@ import { assets } from "../assets/admin_assets/assets";
 import { backendUrl } from "../App";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Product = ({ token }) => {
   const { productId } = useParams();
+  const navigate = useNavigate();
 
   // State
   const [image1, setImage1] = useState(null);
@@ -91,6 +92,7 @@ const Product = ({ token }) => {
 
       if (response.data.success) {
         toast.success("Product updated successfully!");
+        navigate("/list");
       } else {
         toast.error(response.data.message || "Failed to update product");
       }
