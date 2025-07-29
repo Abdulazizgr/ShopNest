@@ -19,7 +19,7 @@ const Product = ({ token }) => {
   const [detailDescription, setDetailDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("Men");
-  const [subCategory, setSubCategory] = useState("Topwear");
+  const [subCategory, setSubCategory] = useState("T-Shirts & Shirts");
   const [sizes, setSizes] = useState([]);
   const [bestSeller, setBestSeller] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -204,9 +204,12 @@ const Product = ({ token }) => {
             onChange={(e) => setSubCategory(e.target.value)}
             className="w-full px-3 py-2 border rounded"
           >
-            <option value="Topwear">Topwear</option>
-            <option value="Bottomwear">Bottomwear</option>
-            <option value="Winterwear">Winterwear</option>
+            <option value="T-Shirts & Shirts">T-Shirts & Shirts</option>
+            <option value="Hoodies & Sweatshirts">Hoodies & Sweatshirts</option>
+            <option value="Jackets & Coats">Jackets & Coats</option>
+            <option value="Pants & Jeans">Pants & Jeans</option>
+            <option value="Shorts">Shorts</option>
+            <option value="Dresses & Skirts">Dresses & Skirts</option>
           </select>
         </div>
         <div>

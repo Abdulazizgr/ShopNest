@@ -65,32 +65,34 @@ const List = ({ token }) => {
         </div>
         {/* ................ Product List ................ */}
         {list.map((product, index) => (
-          <Link key={index} to={`/edit/${product._id}`}>
-            <div
-              className={`grid grid-cols-[1fr_3fr_1fr] md:grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center gap-2 py-1 px-2 border text-sm ${
-                index % 2 !== 0 ? "bg-gray-200" : ""
-              }`}
-              key={index}
-            >
+          <div
+            className={`grid grid-cols-[1fr_3fr_1fr] md:grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center gap-2 py-1 px-2 border text-sm ${
+              index % 2 !== 0 ? "bg-gray-200" : ""
+            }`}
+            key={index}
+          >
+            <Link key={index} to={`/edit/${product._id}`}>
               <img
                 className="w-12"
                 src={product.image[0]}
                 alt="PRODUCT image"
               />
+            </Link>
+            <Link key={index} to={`/edit/${product._id}`}>
               <p>{product.name}</p>
-              <p>{product.category}</p>
-              <p>
-                {currency}
-                {product.price}
-              </p>
-              <p
-                onClick={() => removeProduct(product._id)}
-                className="text-right md:text-center cursor-pointer text-lg"
-              >
-                X
-              </p>
-            </div>
-          </Link>
+            </Link>
+            <p>{product.category}</p>
+            <p>
+              {currency}
+              {product.price}
+            </p>
+            <p
+              onClick={() => removeProduct(product._id)}
+              className="text-right md:text-center cursor-pointer text-lg"
+            >
+              X
+            </p>
+          </div>
         ))}
       </div>
     </>

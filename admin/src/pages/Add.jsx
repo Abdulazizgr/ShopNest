@@ -57,7 +57,7 @@ const Add = ({ token }) => {
         setDetailDescription("");
         setPrice("");
         setCategory("Men");
-        setSubCategory("Topwear");
+        setSubCategory("T-Shirts & Shirts");
         setSizes([]);
         setBestSeller(false);
       } else {
