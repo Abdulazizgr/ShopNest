@@ -22,7 +22,7 @@ const ProductItem = ({
           alt={name}
         />
       </div>
-      <p className="pt-3 pb-1 text-sm">{name}</p>
+      <p className="pt-3 pb-1 text-sm line-clamp-1">{name}</p>
       <p className="text-sm font-medium text-[#FF725C]">
         {currency}
         {price}
