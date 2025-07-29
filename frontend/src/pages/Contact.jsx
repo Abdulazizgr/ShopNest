@@ -17,7 +17,7 @@ const Contact = () => {
         </div>
         <div className="my-10 flex flex-col justify-center md:flex-row gap-10 mb-28">
           <img
-            src={assets.contact_img}
+            src={assets.contact}
             alt="Contact Us"
             className="w-full md:max-w-[480px] "
           />
@@ -29,15 +29,16 @@ const Contact = () => {
               Shopping City, SC 12345
             </p>
             <p className="text-gray-500">
-              Email: support@forever.com
+              Email: support@shopnest.com
               <br />
               Phone: (123) 456-7890
             </p>
             <p className="font-semibold text-xl text-gray-600">
-              Careers at Forever
+              Careers at ShopNest
             </p>
             <p className="text-gray-500">
-              Learn more about our teams and job openings.
+              Join our passionate team and help shape the future of online
+              shopping. <br /> Discover exciting career opportunities with us.
             </p>
             <button
               onClick={handleExploreJobsClick}

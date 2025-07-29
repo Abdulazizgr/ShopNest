@@ -84,6 +84,8 @@ import hero6 from "./hero6.avif";
 import hero7 from "./hero7.avif";
 import chapa_logo from "./chapa.png";
 import logo8 from "./logo8.png";
+import contact from "./contact.avif";
+import contactus from "./contactus.jpg";
 
 export const assets = {
   logo,
@@ -116,6 +118,8 @@ export const assets = {
   hero7,
   chapa_logo,
   logo8,
+  contact,
+  contactus,
 };
 
 export const products = [

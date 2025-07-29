@@ -12,20 +12,22 @@ const PrivacyPolicy = () => {
             1. Information We Collect
           </h2>
           <p className="text-gray-700">
-            We collect the following information:
+            At ShopNest, we collect the following information to provide a
+            seamless shopping experience:
             <ul className="list-disc ml-6 mt-2">
               <li>
-                Personal Information: Name, email address, delivery address, and
-                payment details when you place an order.
+                Personal Information: Your name, email address, delivery
+                address, and payment details when you place an order.
               </li>
               <li>
-                Product Preferences: Information about products you explore,
-                filter, sort, or add to your cart, including selected variants
-                (e.g., size).
+                Product Preferences: Data on products you browse, filter, sort,
+                or add to your cart, including selected variants (e.g., size or
+                color).
               </li>
               <li>
-                Payment Data: Details processed through Stripe or Chapa for
-                online payments, or cash-on-delivery preferences.
+                Payment Data: Information processed through secure payment
+                gateways like Stripe or Chapa for online transactions, or your
+                cash-on-delivery preferences.
               </li>
             </ul>
           </p>
@@ -36,18 +38,24 @@ const PrivacyPolicy = () => {
             2. How We Use Your Information
           </h2>
           <p className="text-gray-700">
-            We use your information to:
+            We use your information to enhance your shopping experience by:
             <ul className="list-disc ml-6 mt-2">
-              <li>Process and deliver your orders.</li>
-              <li>Provide customer support and respond to inquiries.</li>
+              <li>Processing and delivering your orders efficiently.</li>
               <li>
-                Personalize your shopping experience based on product
-                preferences.
+                Providing prompt customer support and addressing your inquiries.
               </li>
               <li>
-                Facilitate payments via Stripe and Chapa or cash-on-delivery.
+                Personalizing your experience based on your product preferences
+                and browsing history.
               </li>
-              <li>Improve our website and services.</li>
+              <li>
+                Facilitating secure payments through Stripe, Chapa, or
+                cash-on-delivery options.
+              </li>
+              <li>
+                Continuously improving our website, services, and product
+                offerings.
+              </li>
             </ul>
           </p>
         </section>
@@ -55,14 +63,18 @@ const PrivacyPolicy = () => {
         <section>
           <h2 className="text-2xl font-semibold mb-2">3. Data Sharing</h2>
           <p className="text-gray-700">
-            We may share your information with:
+            We share your information only when necessary, such as with:
             <ul className="list-disc ml-6 mt-2">
               <li>
-                Payment processors (Stripe and Chapa) to handle online
-                transactions.
+                Trusted payment processors (Stripe and Chapa) to securely handle
+                online transactions.
               </li>
-              <li>Delivery services to fulfill your orders.</li>
-              <li>Legal authorities if required by law.</li>
+              <li>
+                Reliable delivery services to ensure timely order fulfillment.
+              </li>
+              <li>
+                Legal authorities, if required, to comply with applicable laws.
+              </li>
             </ul>
           </p>
         </section>
@@ -70,23 +82,30 @@ const PrivacyPolicy = () => {
         <section>
           <h2 className="text-2xl font-semibold mb-2">4. Data Security</h2>
           <p className="text-gray-700">
-            We implement reasonable security measures to protect your data,
-            including encryption for payment processing. However, no online
-            transmission is fully secure, and we cannot guarantee absolute
-            security.
+            We prioritize your data’s safety with robust security measures,
+            including encryption for payment processing. While we strive to
+            protect your information, please note that no online transmission
+            can be guaranteed as completely secure.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold mb-2">5. Your Rights</h2>
           <p className="text-gray-700">
-            You have the right to:
+            You have control over your data and the right to:
             <ul className="list-disc ml-6 mt-2">
-              <li>Access, update, or delete your personal information.</li>
-              <li>Opt-out of marketing communications.</li>
-              <li>Request details on how your data is processed.</li>
+              <li>
+                Access, update, or request deletion of your personal
+                information.
+              </li>
+              <li>
+                Opt out of marketing emails or promotional communications.
+              </li>
+              <li>
+                Request details about how your data is processed and used.
+              </li>
             </ul>
-            To exercise these rights, contact us at [Your Contact Email].
+            To exercise these rights, contact us at support@shopnest.com.
           </p>
         </section>
 
@@ -95,17 +114,18 @@ const PrivacyPolicy = () => {
             6. Cookies and Tracking
           </h2>
           <p className="text-gray-700">
-            We use cookies to enhance your browsing experience and track usage
-            patterns. You can manage cookie preferences through your browser
-            settings.
+            We use cookies to improve your browsing experience and analyze usage
+            trends. You can customize cookie preferences directly through your
+            browser settings.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold mb-2">7. Third-Party Links</h2>
           <p className="text-gray-700">
-            Our site may contain links to third-party websites (e.g., Stripe,
-            Chapa). We are not responsible for their privacy practices.
+            Our website may include links to third-party platforms (e.g.,
+            Stripe, Chapa). We are not responsible for the privacy practices of
+            these external sites.
           </p>
         </section>
 
@@ -114,16 +134,17 @@ const PrivacyPolicy = () => {
             8. Changes to This Policy
           </h2>
           <p className="text-gray-700">
-            We may update this Privacy Policy periodically. Changes will be
-            posted here with the updated date.
+            We may update this Privacy Policy from time to time to reflect
+            changes in our practices. Updates will be posted here with the
+            revised date.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold mb-2">9. Contact Us</h2>
           <p className="text-gray-700">
-            For questions or concerns, reach out to us at [Your Contact Email]
-            or [Your Phone Number].
+            For any questions or concerns about this Privacy Policy, please
+            reach out to us at support@shopnest.com or (123) 456-7890.
           </p>
         </section>
       </div>
