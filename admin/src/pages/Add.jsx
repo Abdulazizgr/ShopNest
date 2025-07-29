@@ -80,11 +80,11 @@ const Add = ({ token }) => {
         <p className="mb-2">Upload Image</p>
         <div className="flex gap-2">
           <label
-            className="cursor-pointer border-2 border-dashed border-300 rounded-md  "
+            className="cursor-pointer  border-dashed border-gray-300 rounded-md  "
             htmlFor="image1"
           >
             <img
-              className={`${image1 ? "w-20" : "w-[93px]"}`}
+              className={`${image1 ? "w-[70px]" : "w-[93px]"}`}
               src={!image1 ? assets.upload_area : URL.createObjectURL(image1)}
               alt="Upload Area"
             />
@@ -96,11 +96,11 @@ const Add = ({ token }) => {
             />
           </label>
           <label
-            className="cursor-pointer border-2 border-dashed border-gray-300 rounded-md  "
+            className="cursor-pointer  border-dashed border-gray-300 rounded-md  "
             htmlFor="image2"
           >
             <img
-              className={`${image2 ? "w-20" : "w-[93px]"}`}
+              className={`${image2 ? "w-[70px]" : "w-[93px]"}`}
               src={!image2 ? assets.upload_area : URL.createObjectURL(image2)}
               alt="Upload Area"
             />
@@ -112,11 +112,11 @@ const Add = ({ token }) => {
             />
           </label>
           <label
-            className="cursor-pointer border-2 border-dashed border-gray-300 rounded-md  "
+            className="cursor-pointer  border-dashed border-gray-300 rounded-md  "
             htmlFor="image3"
           >
             <img
-              className={`${image3 ? "w-20" : "w-[93px]"}`}
+              className={`${image3 ? "w-[70px]" : "w-[93px]"}`}
               src={!image3 ? assets.upload_area : URL.createObjectURL(image3)}
               alt="Upload Area"
             />
@@ -128,11 +128,11 @@ const Add = ({ token }) => {
             />
           </label>
           <label
-            className="cursor-pointer border-2 border-dashed border-gray-300 rounded-md  "
+            className="cursor-pointer  border-dashed border-gray-300 rounded-md  "
             htmlFor="image4"
           >
             <img
-              className={`${image4 ? "w-20" : "w-[93px]"}`}
+              className={`${image4 ? "w-[70px]" : "w-[93px]"}`}
               src={!image4 ? assets.upload_area : URL.createObjectURL(image4)}
               alt="Upload Area"
             />
