@@ -1,5 +1,6 @@
 class ApiConfig {
-  static const String baseUrl = 'http://localhost:3000';
+  // static const String baseUrl = 'http://localhost:3000';
+  static const String baseUrl = 'https://shop-nest-backend.vercel.app';
 
   static const String productList = '$baseUrl/api/product/list';
   static const String productDetails = '$baseUrl/api/product/details';
