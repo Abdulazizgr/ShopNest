@@ -1,12 +1,48 @@
-# React + Vite
+# ShopNest Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Customer-facing web app for browsing products, managing cart, and placing orders.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18 + Vite
+- React Router
+- Axios
+- Tailwind CSS
+- Framer Motion
+- React Toastify
 
-## Expanding the ESLint configuration
+## Requirements
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js 18+
+- npm 9+
+
+## Environment Variables
+
+Create an `.env` file in this folder:
+
+```env
+VITE_BACKEND_URL=http://localhost:4000
+```
+
+This value is required to call backend APIs.
+
+## Install and Run
+
+```bash
+npm install
+npm run dev
+```
+
+Default dev server port: `5173`
+
+## Available Scripts
+
+- `npm run dev` - start development server
+- `npm run build` - build for production
+- `npm run preview` - preview production build
+- `npm run lint` - run ESLint
+
+## Notes
+
+- Start the backend before running the frontend.
+- Checkout/payment flows depend on backend payment configuration.
