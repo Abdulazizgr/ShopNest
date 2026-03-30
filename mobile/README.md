@@ -1,17 +1,54 @@
-# shopnest
+# ShopNest Mobile App
 
-A new Flutter project.
+Flutter mobile application for ShopNest e-commerce.
 
-## Getting Started
+## Tech Stack
 
-This project is a starting point for a Flutter application.
+- Flutter (Dart)
+- Provider (state management)
+- HTTP client for API calls
+- Shared Preferences for local auth/session data
 
-A few resources to get you started if this is your first Flutter project:
+## Requirements
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Flutter SDK 3.35+
+- Dart SDK 3.11+
+- Android Studio or Xcode (for emulator/device builds)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Setup
+
+From this folder:
+
+```bash
+flutter pub get
+flutter run
+```
+
+## API Configuration
+
+The app uses a hardcoded backend URL in `lib/config/api_config.dart`:
+
+```dart
+static const String baseUrl = 'https://shop-nest-backend.vercel.app';
+```
+
+For local backend testing, change it to:
+
+```dart
+static const String baseUrl = 'http://10.0.2.2:4000';
+```
+
+Use your machine's LAN IP for physical devices (for example, `http://192.168.1.20:4000`).
+
+## Useful Commands
+
+- `flutter pub get` - install dependencies
+- `flutter run` - run in debug mode
+- `flutter test` - run tests
+- `flutter build apk` - build Android APK
+- `flutter build ios` - build iOS app
+
+## Notes
+
+- Make sure backend CORS and network access allow mobile requests.
+- Payment and order verification routes depend on backend configuration.
